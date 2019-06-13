@@ -69,8 +69,8 @@ class OnPremContextSource(ContextSourceInterface):
         return client.V1PodSpec(
             init_containers=[client.V1Container(
                 name='minio-s3-pulling',
-                image='registry.dudaji.org/dudaji/s3cmd:latest',
-                args=[self.upload_context_url, "/build_context"],
+                image='docker.io/brightfly/dudaji.fairing.s3cmd',
+                args=[self.uploaded_context_url, "/build_context"],
                 volume_mounts=[
                     client.V1VolumeMount(
                         name="build-context",
