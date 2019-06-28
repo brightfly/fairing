@@ -52,6 +52,7 @@ class OnPremContextSource(ContextSourceInterface):
             self.minioClient.fput_object(self.gcp_project,
                                          'fairing_builds/' + context_name,
                                          context_filename)
+
             s3_url = "s3://" + self.gcp_project + "/fairing_builds/" + context_name
         except ResponseError as err:
             print(err)

@@ -64,7 +64,7 @@ class OnPremBackend(BackendInterface):
                 "Not able to guess the right builder for this job!")
 
     def get_training_deployer(self):
-        return Job(self._namespace)
+        return Job(self._namespace, cleanup=False)
 
     def get_serving_deployer(self, model_class):
         return Serving(model_class, namespace=self._namespace)
